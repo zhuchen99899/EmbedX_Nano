@@ -1,7 +1,7 @@
 /**
  * @file exStdint.h
  * @author ZC (387646983@qq.com)
- * @brief 
+ * @brief exint 库
  * @version 0.1
  * @date 2024-11-25
  * 
@@ -31,13 +31,13 @@ extern "C" {
 #if (EX_STDINT_IS_ENABLE == 0) //当前平台不支持标准stdint 
 //需要对基本类型做适配
 
-#define int8_t signed   char;            /*!<  8bit 整形 */
-#define int16_t signed   short ;        /*!< 16bit 整形 */
-#define int32_t signed   int ;          /*!< 32bit 整形 */
-#define uint8_t unsigned char   ;       /*!<  8bit 无符号整形 */
-#define uint16_t unsigned short ;       /*!< 16bit 无符号整形 */
-#define uint32_t unsigned int   ;       /*!< 32bit 无符号整形 */
-#define intptr_t long     int   ;       /*!< 指针大小类型 */
+#define int8_t signed   char           /*!<  8bit 整形 */
+#define int16_t signed   short         /*!< 16bit 整形 */
+#define int32_t signed   int           /*!< 32bit 整形 */
+#define uint8_t unsigned char          /*!<  8bit 无符号整形 */
+#define uint16_t unsigned short        /*!< 16bit 无符号整形 */
+#define uint32_t unsigned int          /*!< 32bit 无符号整形 */
+#define intptr_t long     int          /*!< 指针大小类型 */
 
 #ifndef UINT8_MAX
 #define UINT8_MAX                       (0xffU)         /*!<  uint8_t 的最大数字 */

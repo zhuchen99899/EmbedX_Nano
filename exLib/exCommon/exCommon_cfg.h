@@ -1,26 +1,21 @@
 /**
- * @file exStdstring.h
+ * @file exCommon_cfg.h
  * @author ZC (387646983@qq.com)
- * @brief exString库
+ * @brief 
  * @version 0.1
  * @date 2024-11-25
  * 
  * @copyright Copyright (c) 2024
  * 
  */
-
-#ifndef _EXSTDSTRING_H_
-#define _EXSTDSTRING_H_
+#ifndef _EXCOMMON_CFG_H_
+#define _EXCOMMON_CFG_H_
 
 
 
 /* ==================== [Includes] ========================================== */
 
-#include "exStd_cfg.h"
-
-#if EX_STRING_IS_ENABLE //当前平台支持标准stdstring
-#   include <string.h>
-#endif
+#include "exLib_cfg.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -29,22 +24,25 @@ extern "C" {
 
 /* ==================== [Defines] ========================================== */
 
+/**
+ * @brief 是否使能错误码值到字符串的查找表(`EX_OK`->"EX_OK").
+ */
+#if !defined(EX_COMMON_ERR_TO_NAME_LOOKUP_DISABLE) || (EX_COMMON_ERR_TO_NAME_LOOKUP_DISABLE)
+#   define EX_COMMON_ERR_TO_NAME_LOOKUP_IS_ENABLE (0)
+#else
+#   define EX_COMMON_ERR_TO_NAME_LOOKUP_IS_ENABLE (1)
+#endif
+
+
 /* ==================== [Macros] ============================================ */
 
 /* ==================== [Typedefs] ========================================== */
 
 /* ==================== [Global Prototypes] ========================================== */
 
-//ex平台ex_memset、ex_bzero、ex_memcpy、ex_memcmp 实现
-#define ex_memset(ptr, value, size)    ex_user_memset((void*)(ptr), (value), (size))
-#define ex_bzero(ptr, size)            ex_memset((void*)(ptr), 0, (size))
-#define ex_memcpy(dest, src, n)        ex_user_memcpy((dest), (src), (n))
-#define ex_memcmp(dest, src, n)        ex_user_memcmp((dest), (src), (n))
-
-
 #ifdef __cplusplus
 }/* extern C */
 #endif
 
 
-#endif // _EXSTDSTRING_H_
+#endif // _EXCOMMON_CFG_H_

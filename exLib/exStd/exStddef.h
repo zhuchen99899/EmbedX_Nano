@@ -32,8 +32,8 @@ extern "C" {
 #define NULL ((void *)0)
 #endif
 
-#define ptrdiff_t long int;   /*!< 指针比较大小类型 */
-#define size_t long unsigned int;
+#define ptrdiff_t long int   /*!< 指针比较大小类型 */
+#define size_t long unsigned int
 
 /* ==================== [Macros] ============================================ */
 

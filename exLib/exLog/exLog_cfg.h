@@ -1,7 +1,7 @@
 /**
  * @file exLog_cfg.h
  * @author ZC (387646983@qq.com)
- * @brief 
+ * @brief ex日志工具配设接口
  * @version 0.1
  * @date 2024-11-25
  * @note 启用EMBEDX平台默认支持exLog
@@ -26,6 +26,11 @@
 #include <stdio.h>
 #endif
 
+#if EX_LOG_DUMP_ENABLE
+#   define EX_LOG_DUMP_IS_ENABLE (1)
+#else
+#   define EX_LOG_DUMP_IS_ENABLE (0)
+#endif
 
 #ifdef __cplusplus
 extern "C" {
