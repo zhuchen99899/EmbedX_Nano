@@ -22,7 +22,7 @@ extern "C" {
 
 #define EX_COMMON_ERR_TO_NAME_LOOKUP_DISABLE    (0)
 
-#define EX_LOG_DUMP_ENABLE                      (1)
+#define EX_LOG_DUMP_ENABLE                      (0)
 
 /* ==================== [Macros] ============================================ */
 

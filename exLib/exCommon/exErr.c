@@ -8,6 +8,7 @@
  * @copyright Copyright (c) 2024
  * 
  */
+
 /* ==================== [Includes] ========================================== */
 #include "exCommon.h"
 
@@ -59,6 +60,7 @@ static const char ex_unknown_msg[] = {
 /* ==================== [Static Functions] ================================== */
 
 /* ==================== [Global Functions] ================================== */
+
 
 const char *ex_err_to_name(ex_err_t code)
 {

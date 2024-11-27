@@ -8,9 +8,12 @@ extern "C" {
 #endif
 
 /* ==================== [Includes] ========================================== */
-#include "../exLog/exLog.h"
-
-
+#include "exLog/exLog.h"
+#include "exStd/exStdbool.h"
+#include "exStd/exStddef.h"
+#include "exstd/exStdint.h"
+#include "exstd/exStdstring.h"
+#include "exCommon/exCommon.h"
 /* ==================== [Defines] ========================================== */
 
 /* ==================== [Macros] ============================================ */

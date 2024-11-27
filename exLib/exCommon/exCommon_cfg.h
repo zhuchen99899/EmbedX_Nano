@@ -15,7 +15,7 @@
 
 /* ==================== [Includes] ========================================== */
 
-#include "exLib_cfg.h"
+#include "../exLib_cfg.h"
 
 #ifdef __cplusplus
 extern "C" {
