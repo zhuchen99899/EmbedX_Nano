@@ -68,6 +68,21 @@ ex_err_t ex_dump_mem(void *addr, size_t size, uint8_t flags_mask);
 
 /* ==================== [Macros] ============================================ */
 
+
+#   define ex_printf(format,...)      printf(format, ##__VA_ARGS__)
+
+#define LOG_DARK        30
+#define LOG_RED         31
+#define LOG_GREEN       32
+#define LOG_YELLOW      33
+#define LOG_BLUE        34
+#define LOG_MAGENTA     35
+#define LOG_CYAN        36
+
+#define EX_LOG_COLOR_SET(foreColor,backColor) ex_printf("\033[1;%d;%dm", foreColor, (backColor+10))
+#define EX_LOG_COLOR_CLEAR()  ex_printf("\033[0m")
+
+
 #if EX_LOG_LEVEL >= EX_LOG_USER
 #   define EX_LOGU(tag, format, ...)  ex_log_level(EX_LOG_USER,     tag, format, ##__VA_ARGS__)
 #else

@@ -1,5 +1,3 @@
-
-
 set(LIB_NAME "exLib")
 
 project(exLogExample C)
@@ -14,8 +12,6 @@ message("--------------------------------")
 # 构建静态库
 add_library(${LIB_NAME} STATIC "") # exLib.a
 
-
-
 target_sources(${LIB_NAME} PUBLIC "${C_FILES}")
 
 
@@ -24,3 +20,5 @@ target_include_directories(${LIB_NAME} PUBLIC "${CMAKE_CURRENT_LIST_DIR}/exLog")
 target_include_directories(${LIB_NAME} PUBLIC "${CMAKE_CURRENT_LIST_DIR}/exCommon")
 target_include_directories(${LIB_NAME} PUBLIC "${CMAKE_CURRENT_LIST_DIR}/exStd")
 target_include_directories(${LIB_NAME} PUBLIC "${CMAKE_CURRENT_LIST_DIR}/")
+
+

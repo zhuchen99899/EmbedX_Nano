@@ -39,7 +39,7 @@ extern "C" {
 /* ==================== [Defines] =========================================== */
 // 默认输出等级
 #ifndef EX_LOG_LEVEL
-#   define EX_LOG_LEVEL EX_LOG_INFO 
+#   define EX_LOG_LEVEL EX_LOG_VERBOSE 
 #endif
 
 
@@ -47,9 +47,15 @@ extern "C" {
 #   error "log level must between 0 to 6"
 #endif
 
+//embedx 框架默认printf
+#if !defined(ex_printf)
+#   define ex_printf(format,...)      printf(format, ##__VA_ARGS__)
+#endif 
+
 // ex_log_printf 默认对接printf，嵌入式平台需要实现printf支持
 #if !defined(ex_log_printf)
-#   define ex_log_printf(format, ...) printf(format, ##__VA_ARGS__)
+
+#   define ex_log_printf(format, ...)  printf(format, ##__VA_ARGS__)
 #endif
 
 
@@ -61,7 +67,7 @@ extern "C" {
 
 // exlog对接:如果不独立对接ex_log_level，则会调用ex_log_printf实现
 #if !defined(ex_log_level) && defined(ex_log_printf)
-#define ex_log_level(level, tag, format, ...) ex_log_printf("%c-%s[:%d(%s)]: "format"\n", #level[7], tag, __LINE__, __FUNCTION__, ##__VA_ARGS__)
+#define ex_log_level(level, tag, format, ...) ex_log_printf("%c-[<%s>(%s):%d]: "format"\n", #level[7], tag,__FUNCTION__, __LINE__,##__VA_ARGS__)
 #endif
 
 

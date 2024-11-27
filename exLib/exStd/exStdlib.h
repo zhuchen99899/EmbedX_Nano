@@ -1,7 +1,7 @@
 /**
  * @file exStdlib.h
  * @author ZC (387646983@qq.com)
- * @brief 
+ * @brief exstdlib 库
  * @version 0.1
  * @date 2024-11-25
  * 
