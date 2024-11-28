@@ -14,6 +14,7 @@ extern "C" {
 #include "exstd/exStdint.h"
 #include "exstd/exStdstring.h"
 #include "exCommon/exCommon.h"
+#include "exList/exList.h"
 /* ==================== [Defines] ========================================== */
 
 /* ==================== [Macros] ============================================ */

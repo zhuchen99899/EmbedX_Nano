@@ -13,7 +13,6 @@ EX_LOGI(tag,"hello world\r\n");
 EX_LOGW(tag,"hello world\r\n");
 EX_LOGE(tag,"hello world\r\n");
 EX_LOGU(tag,"hello world\r\n");
-
 }
 void main()
 {
