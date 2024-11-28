@@ -1,10 +1,20 @@
-#ifndef _EXVERSION_H_
-#define _EXVERSION_H_
+/**
+ * @file ex_version.h
+ * @author ZC (387646983@qq.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-11-29
+ * @note 版本号工具
+ * @copyright Copyright (c) 2024
+ * 
+ */
+#ifndef _EX_VERSION_H_
+#define _EX_VERSION_H_
 
 
 
 /* ==================== [Includes] ========================================== */
-#include "exComplier.h"
+#include "ex_complier.h"
 
 #ifdef __cplusplus
 extern "C" {

@@ -1,40 +1,38 @@
 /**
- * @file exStdbool.h
+ * @file ex_common_cfg.h
  * @author ZC (387646983@qq.com)
- * @brief exbool 库
+ * @brief 
  * @version 0.1
- * @date 2024-11-25
- * 
+ * @date 2024-11-28
+ * @note 通用工具配置
  * @copyright Copyright (c) 2024
  * 
  */
-
-#ifndef _EXSTDBOOL_H_
-#define _EXSTDBOOL_H_
+#ifndef _EX_COMMON_CFG_H_
+#define _EX_COMMON_CFG_H_
 
 
 
 /* ==================== [Includes] ========================================== */
 
-#include "EXStd_cfg.h"
+#include "../ex_lib_cfg.h"
 
-#if EX_STDBOOL_IS_ENABLE //当前平台支持标准 stdbool
-    #include <stdbool.h>
-#endif
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 
 /* ==================== [Defines] ========================================== */
-#if (EX_STDBOOL_IS_ENABLE == 0)//当前平台不支持标准 stdbool
-#ifndef bool
-#define bool uint8_t   /*!< 布尔类型 */
-#define true    1
-#define false   0
+
+/**
+ * @brief 是否使能错误码值到字符串的查找表(`EX_OK`->"EX_OK").
+ */
+#if !defined(EX_COMMON_ERR_TO_NAME_LOOKUP_DISABLE) || (EX_COMMON_ERR_TO_NAME_LOOKUP_DISABLE)
+#   define EX_COMMON_ERR_TO_NAME_LOOKUP_IS_ENABLE (0)
+#else
+#   define EX_COMMON_ERR_TO_NAME_LOOKUP_IS_ENABLE (1)
 #endif
 
-#endif
 
 /* ==================== [Macros] ============================================ */
 
@@ -47,4 +45,4 @@ extern "C" {
 #endif
 
 
-#endif // _EXSTDBOOL_H_
+#endif // _EXCOMMON_CFG_H_

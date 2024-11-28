@@ -8,12 +8,12 @@
  * @copyright Copyright (c) 2024
  * 
  */
-#ifndef _EXSTDINT_H_
-#define _EXSTDINT_H_
+#ifndef _EX_STDINT_H_
+#define _EX_STDINT_H_
 
 
 /* ==================== [Includes] ========================================== */
-#include "exStd_cfg.h"
+#include "ex_std_cfg.h"
 
 #if EX_STDINT_IS_ENABLE //当前平台支持标准stdint
 # include <stdint.h>

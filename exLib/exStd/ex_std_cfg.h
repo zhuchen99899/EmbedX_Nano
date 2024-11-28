@@ -1,21 +1,21 @@
 /**
- * @file exStd_cfg.h
+ * @file ex_std_cfg.h
  * @author ZC (387646983@qq.com)
  * @brief  ex标准库接口
  * @version 0.1
  * @date 2024-11-25
- * 
+ * @note 标准库配设
  * @copyright Copyright (c) 2024
  * 
  */
 
-#ifndef _EXSTD_CFG_H_
-#define _EXSTD_CFG_H_
+#ifndef _EX_STD_CFG_H_
+#define _EX_STD_CFG_H_
 
 
 
 /* ==================== [Includes] ========================================== */
-#include "../exLib_cfg.h"
+#include "../ex_lib_cfg.h"
 
 #ifdef __cplusplus
 extern "C" {

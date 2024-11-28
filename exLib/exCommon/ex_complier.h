@@ -1,11 +1,21 @@
-#ifndef _EXCOMPLIER_H_
-#define _EXCOMPLIER_H_
+/**
+ * @file ex_complier.h
+ * @author ZC (387646983@qq.com)
+ * @brief 
+ * @version 0.1
+ * @date 2024-11-28
+ * @note 编译器相关功能
+ * @copyright Copyright (c) 2024
+ * 
+ */
+#ifndef _EX_COMPLIER_H_
+#define _EX_COMPLIER_H_
 
 
 
 /* ==================== [Includes] ========================================== */
 
-#include "exCommon_cfg.h"
+#include "ex_common_cfg.h"
 #ifdef __cplusplus
 extern "C" {
 #endif

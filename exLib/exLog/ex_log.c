@@ -1,22 +1,21 @@
 /**
- * @file exLog.c
+ * @file ex_log.c
  * @author ZC (387646983@qq.com)
  * @brief ex日志工具
  * @version 0.1
  * @date 2024-11-25
- * 
+ * @note 支持彩色打印，等级过滤，文件行号，输出二进制文件
  * @copyright Copyright (c) 2024
  * 
  */
 
 
 /* ==================== [Includes] ========================================== */
-#include "exLog_cfg.h"
 
+#include "ex_log.h"
 #if EX_LOG_DUMP_IS_ENABLE
+#include "../exCommon/ex_bit_ctrl.h"
 
-#include "exLog.h"
-/* ==================== [Defines] ========================================== */
 /* 只输出 16 进制格式数据时，每行实际会输出的字节数 */
 #define EX_DUMP_HEX_BYTES_PER_LINE                  (53)
 /* 输出 16 进制格式数据和 ASCII 字符时，每行实际会输出的字节数 */

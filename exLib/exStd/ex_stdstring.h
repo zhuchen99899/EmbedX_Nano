@@ -1,7 +1,7 @@
 /**
  * @file exStdstring.h
  * @author ZC (387646983@qq.com)
- * @brief exString库
+ * @brief exStdString库
  * @version 0.1
  * @date 2024-11-25
  * 
@@ -9,14 +9,14 @@
  * 
  */
 
-#ifndef _EXSTDSTRING_H_
-#define _EXSTDSTRING_H_
+#ifndef _EX_STDSTRING_H_
+#define _EX_STDSTRING_H_
 
 
 
 /* ==================== [Includes] ========================================== */
 
-#include "exStd_cfg.h"
+#include "ex_std_cfg.h"
 
 #if EX_STRING_IS_ENABLE //当前平台支持标准stdstring
 #   include <string.h>

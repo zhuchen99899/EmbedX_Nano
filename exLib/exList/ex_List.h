@@ -1,5 +1,5 @@
 /**
- * @file exList.h
+ * @file ex_list.h
  * @author ZC (387646983@qq.com)
  * @brief 
  * @version 0.1
@@ -10,13 +10,13 @@
  */
 
 
-#ifndef _EXLIST_H_
-#define _EXLIST_H_
+#ifndef _EX_LIST_H_
+#define _EX_LIST_H_
 
 
 
 /* ==================== [Includes] ========================================== */
-#include "../exCommon/exMacros.h" //offsetof and container_of support for list
+#include "../exCommon/ex_macros.h" //offsetof and container_of support for list
 
 #ifdef __cplusplus
 extern "C" {
@@ -25,7 +25,7 @@ extern "C" {
 
 /* ==================== [Defines] ========================================== */
 
-//野指针地址
+//释放后头尾指针地址
 #if !defined(EX_LIST_POISON1)
 #   define EX_LIST_POISON1              0x002431f2
 #endif

@@ -1,5 +1,5 @@
 /**
- * @file exLog_cfg.h
+ * @file ex_log_cfg.h
  * @author ZC (387646983@qq.com)
  * @brief ex日志工具配设接口
  * @version 0.1
@@ -11,10 +11,10 @@
  * 
  */
 
-#ifndef _EXLOG_CFG_H_
-#define _EXLOG_CFG_H_
+#ifndef _EX_LOG_CFG_H_
+#define _EX_LOG_CFG_H_
 /* ==================== [Includes] ========================================== */
-#include "../exLib_cfg.h"
+#include "../ex_lib_cfg.h"
 
 
 
@@ -39,7 +39,7 @@
 #if EX_LOG_COLOR_ENABLE
 #define EX_LOG_COLOR_IS_ENABLE (1)
 #else
-#   define EX_LOG_DUMP_IS_ENABLE (0)
+#   define EX_LOG_COLOR_IS_ENABLE (0)
 #endif
 
 #ifdef __cplusplus
@@ -69,7 +69,7 @@ extern "C" {
 #endif
 
 
-// exlog 打印二进制的后端，默认使用ex_log_printf打印
+// exlog 打印二进制的后端，默认使用ex_log_printf打印,一般配置fprintf
 #if !defined(ex_log_dump_printf)
 #   define ex_log_dump_printf(format, ...) ex_log_printf(format, ##__VA_ARGS__)
 #endif

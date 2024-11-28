@@ -1,21 +1,20 @@
 /**
- * @file exMacros.h
+ * @file ex_macros.h
  * @author ZC (387646983@qq.com)
- * @brief 宏工具 ,不依赖于编译器
+ * @brief 
  * @version 0.1
- * @date 2024-11-25
- * 
+ * @date 2024-11-29
+ * @note 通用宏 不依赖于编译器
  * @copyright Copyright (c) 2024
  * 
  */
-
-#ifndef _EXMACROS_H_
-#define _EXMACROS_H_
+#ifndef _EX_MACROS_H_
+#define _EX_MACROS_H_
 
 
 
 /* ==================== [Includes] ========================================== */
-#include "exCommon_cfg.h"
+#include "ex_common_cfg.h"
 
 #ifdef __cplusplus
 extern "C" {

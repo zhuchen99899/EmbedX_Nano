@@ -1,5 +1,5 @@
-#ifndef _EXLIB_H_
-#define _EXLIB_H_
+#ifndef _EX_LIB_H_
+#define _EX_LIB_H_
 
 
 
@@ -8,13 +8,14 @@ extern "C" {
 #endif
 
 /* ==================== [Includes] ========================================== */
-#include "exLog/exLog.h"
-#include "exStd/exStdbool.h"
-#include "exStd/exStddef.h"
-#include "exstd/exStdint.h"
-#include "exstd/exStdstring.h"
-#include "exCommon/exCommon.h"
-#include "exList/exList.h"
+#include "exLog/ex_log.h"
+#include "exStd/ex_stdbool.h"
+#include "exStd/ex_stddef.h"
+#include "exstd/ex_stdint.h"
+#include "exstd/ex_stdstring.h"
+#include "exCommon/ex_common.h"
+#include "exList/ex_list.h"
+#include "exCommon/ex_bit_ctrl.h"
 /* ==================== [Defines] ========================================== */
 
 /* ==================== [Macros] ============================================ */

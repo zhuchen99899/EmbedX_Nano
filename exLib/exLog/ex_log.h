@@ -1,5 +1,5 @@
 /**
- * @file exLog.h
+ * @file ex_log.h
  * @author ZC (387646983@qq.com)
  * @brief ex日志工具
  * @version 0.1
@@ -9,11 +9,11 @@
  * 
  */
 
-#ifndef EXLOG_H
-#define EXLOG_H
+#ifndef EX_LOG_H
+#define EX_LOG_H
 /* ==================== [Includes] ========================================== */
-#include "exLog_cfg.h"
-#include "../exCommon/exCommon.h"
+#include "ex_log_cfg.h"
+#include "../exCommon/ex_common.h"
 #ifdef __cplusplus
 extern "C" {
 #endif

@@ -1,20 +1,22 @@
 /**
- * @file exErr.h
+ * @file ex_err.h
  * @author ZC (387646983@qq.com)
- * @brief 错误码
+ * @brief 
  * @version 0.1
- * @date 2024-11-25
+ * @date 2024-11-28
+ * @note 错误类型
  * @copyright Copyright (c) 2024
  * 
  */
 
-#ifndef _EXERR_H_
-#define _EXERR_H_
+
+#ifndef _EX_ERR_H_
+#define _EX_ERR_H_
 
 
 /* ==================== [Includes] ========================================== */
 
-#include "../exStd/exStdint.h"
+#include "../exStd/ex_stdint.h"
 
 #ifdef __cplusplus
 extern "C" {

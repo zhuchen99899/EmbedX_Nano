@@ -1,16 +1,16 @@
 /**
- * @file exErr.c
+ * @file ex_err.c
  * @author ZC (387646983@qq.com)
- * @brief 错误码转字符
+ * @brief 
  * @version 0.1
- * @date 2024-11-25
- * 
+ * @date 2024-11-28
+ * @note 错误码转换工具
  * @copyright Copyright (c) 2024
  * 
  */
 
 /* ==================== [Includes] ========================================== */
-#include "exCommon.h"
+#include "ex_common.h"
 
 /* ==================== [Defines] ========================================== */
 /**

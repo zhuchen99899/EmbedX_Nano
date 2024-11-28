@@ -1,7 +1,7 @@
 /**
- * @file exStddef.h
+ * @file ex_common.h
  * @author ZC (387646983@qq.com)
- * @brief exStddef库
+ * @brief 通用工具头文件
  * @version 0.1
  * @date 2024-11-25
  * 
@@ -9,43 +9,33 @@
  * 
  */
 
-#ifndef _EXSTDDEF_H_
-#define _EXSTDDEF_H_
+#ifndef _EX_COMMON_H_
+#define _EX_COMMON_H_
 
 
 
 /* ==================== [Includes] ========================================== */
-
-#include "exStd_cfg.h"
-
-#if EX_STDDEF_IS_ENABLE //当前平台支持标准stddef
-    #include <stddef.h>
-#endif
-
+#include "ex_common_cfg.h"
+#include "ex_macros.h"
+#include "ex_err.h"
+#include "ex_complier.h"
+#include "ex_version.h"
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+
 /* ==================== [Defines] ========================================== */
-#if (EX_STDDEF_IS_ENABLE == 0) //当前平台不支持标准stddef
-
-#ifndef NULL
-#define NULL ((void *)0)
-#endif
-
-#define ptrdiff_t long int   /*!< 指针比较大小类型 */
-#define size_t long unsigned int
 
 /* ==================== [Macros] ============================================ */
 
 /* ==================== [Typedefs] ========================================== */
 
 /* ==================== [Global Prototypes] ========================================== */
-#endif // EX_STDDEF_IS_ENABLE
-
 
 #ifdef __cplusplus
 }/* extern C */
 #endif
 
 
-#endif // _EXSTDDEF_H_
+#endif // _EXCOMMON_H_
