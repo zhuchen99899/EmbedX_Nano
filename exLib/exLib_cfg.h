@@ -5,6 +5,7 @@
 
 /* ==================== [Includes] ========================================== */
 
+#include "./exLog/exLog.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -23,6 +24,16 @@ extern "C" {
 #define EX_COMMON_ERR_TO_NAME_LOOKUP_DISABLE    (0)
 
 #define EX_LOG_DUMP_ENABLE                      (0)
+
+
+//开启打印等级
+#ifdef EX_LOG_LEVEL
+#undef EX_LOG_LEVEL
+#endif
+#   define EX_LOG_LEVEL EX_LOG_VERBOSE 
+
+//开启打印颜色
+#   define EX_LOG_COLOR_ENABLE (1)
 
 /* ==================== [Macros] ============================================ */
 

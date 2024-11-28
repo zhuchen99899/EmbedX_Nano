@@ -15,6 +15,9 @@
 #define _EXLOG_CFG_H_
 /* ==================== [Includes] ========================================== */
 #include "../exLib_cfg.h"
+
+
+
 /*启动embedx 框架后默认使用exlog功能 */
 #if defined(EMBEDX_ENABLED)
 #define EMBEDX_IS_ENABLED (1)
@@ -26,8 +29,15 @@
 #include <stdio.h>
 #endif
 
+
 #if EX_LOG_DUMP_ENABLE
 #   define EX_LOG_DUMP_IS_ENABLE (1)
+#else
+#   define EX_LOG_DUMP_IS_ENABLE (0)
+#endif
+
+#if EX_LOG_COLOR_ENABLE
+#define EX_LOG_COLOR_IS_ENABLE (1)
 #else
 #   define EX_LOG_DUMP_IS_ENABLE (0)
 #endif
