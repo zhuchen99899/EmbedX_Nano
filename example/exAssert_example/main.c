@@ -27,7 +27,7 @@ ex_assert_not_null(arg);
 
 void main()
 {
-// functionA(0);
+functionA(0);
 // functionB(0);
 // int *A = NULL;
 // functionC(A);

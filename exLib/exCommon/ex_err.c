@@ -59,7 +59,7 @@ static const char ex_unknown_msg[] = {
 };
 /* ==================== [Static Functions] ================================== */
 
-/* ==================== [Global Functions] ================================== */
+/* ==================== [Public Functions] ================================== */
 
 
 const char *ex_err_to_name(ex_err_t code)

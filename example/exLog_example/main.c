@@ -6,7 +6,6 @@ ELAB_TAG("MAIN");
 
 void functionA()
 {
-
 EX_LOGV("hello world\r\n");
 EX_LOGD("hello world\r\n");
 EX_LOGI("hello world\r\n");

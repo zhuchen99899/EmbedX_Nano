@@ -68,7 +68,7 @@ typedef struct ex_list_head ex_list_t;
     struct list_head name = EX_LIST_HEAD_INIT(name)
 
 
-/* ==================== [Global Prototypes] ========================================== */
+/* ==================== [Public Prototypes] ========================================== */
 
 //dynamtic create
 /**

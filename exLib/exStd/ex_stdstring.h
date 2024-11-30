@@ -33,7 +33,7 @@ extern "C" {
 
 /* ==================== [Typedefs] ========================================== */
 
-/* ==================== [Global Prototypes] ========================================== */
+/* ==================== [Public Prototypes] ========================================== */
 
 //ex平台ex_memset、ex_bzero、ex_memcpy、ex_memcmp 实现
 #define ex_memset(ptr, value, size)    ex_user_memset((void*)(ptr), (value), (size))

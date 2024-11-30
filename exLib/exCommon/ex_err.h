@@ -60,7 +60,7 @@ typedef enum {
  */
 typedef int32_t ex_err_t;
 
-/* ==================== [Global Prototypes] ================================= */
+/* ==================== [Public Prototypes] ================================= */
 
 /**
   * @brief 返回 ex_err_code_t 错误代码对应的错误信息字符串
@@ -68,7 +68,7 @@ typedef int32_t ex_err_t;
   * @return 错误信息字符串。
   */
 const char *ex_err_to_name(ex_err_t code);
-/* ==================== [Global Prototypes] ========================================== */
+/* ==================== [Public Prototypes] ========================================== */
 
 #ifdef __cplusplus
 }

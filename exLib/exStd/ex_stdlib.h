@@ -31,7 +31,7 @@ extern "C" {
 
 /* ==================== [Typedefs] ========================================== */
 
-/* ==================== [Global Prototypes] ========================================== */
+/* ==================== [Public Prototypes] ========================================== */
 //ex平台ex_malloc、ex_free 实现
 #define ex_malloc(x)                   ex_user_malloc(x)
 #define ex_free(x)                     ex_user_free(x)
