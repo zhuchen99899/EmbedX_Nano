@@ -25,6 +25,8 @@ extern "C" {
 #define EX_LOG_INFO             (4)
 #define EX_LOG_DEBUG            (5)
 #define EX_LOG_VERBOSE          (6)
+              
+#define ELAB_TAG(_tag)  static const char *TAG = _tag
 
 //启用打印到二进制文件
 #if EX_LOG_DUMP_IS_ENABLE
@@ -50,7 +52,7 @@ extern "C" {
 
 /* ==================== [Typedefs] ========================================== */
 
-/* ==================== [Global Prototypes] ================================= */
+/* ==================== [Public Prototypes] ================================= */
 
 
 
@@ -89,98 +91,98 @@ ex_err_t ex_dump_mem(void *addr, size_t size, uint8_t flags_mask);
 
 #if EX_LOG_LEVEL >= EX_LOG_USER
     #if EX_LOG_COLOR_IS_ENABLE 
-    #   define EX_LOGU(tag, format, ...) \
+    #   define EX_LOGU(format, ...) \
     do { \
         EX_LOG_COLOR_CLEAR();\
         EX_LOG_FORECOLOR_SET(LOG_MAGENTA);\
-        ex_log_level(EX_LOG_USER,     tag, format, ##__VA_ARGS__);\
+        ex_log_level(EX_LOG_USER,TAG, format, ##__VA_ARGS__);\
         EX_LOG_COLOR_CLEAR();\
     } while (0)
     #else
-    #   define EX_LOGU(tag, format, ...)  ex_log_level(EX_LOG_USER,     tag, format, ##__VA_ARGS__)
+    #   define EX_LOGU(format, ...)  ex_log_level(EX_LOG_USER,     TAG, format, ##__VA_ARGS__)
     #endif
 #else
-#   define EX_LOGU(tag, format, ...)  (void)(tag)
+#   define EX_LOGU(format, ...)  (void)(TAG)
 #endif
 
 
 
 #if EX_LOG_LEVEL >= EX_LOG_ERROR
     #if EX_LOG_COLOR_IS_ENABLE
-    #   define EX_LOGE(tag, format, ...) \
+    #   define EX_LOGE(format, ...) \
     do { \
         EX_LOG_COLOR_CLEAR();\
         EX_LOG_FORECOLOR_SET(LOG_RED);\
-        ex_log_level(EX_LOG_ERROR,    tag, format, ##__VA_ARGS__);\
+        ex_log_level(EX_LOG_ERROR,    TAG, format, ##__VA_ARGS__);\
         EX_LOG_COLOR_CLEAR();\
     } while (0)
     #else
-    #   define EX_LOGE(tag, format, ...)  ex_log_level(EX_LOG_ERROR,    tag, format, ##__VA_ARGS__)
+    #   define EX_LOGE(format, ...)  ex_log_level(EX_LOG_ERROR,    TAG, format, ##__VA_ARGS__)
     #endif
 #else
-#   define EX_LOGE(tag, format, ...)  (void)(tag)
+#   define EX_LOGE(format, ...)  (void)(TAG)
 #endif
 
 #if EX_LOG_LEVEL >= EX_LOG_WARN
     #if EX_LOG_COLOR_IS_ENABLE
-    #   define EX_LOGW(tag, format, ...) \
+    #   define EX_LOGW(format, ...) \
     do { \
         EX_LOG_COLOR_CLEAR();\
         EX_LOG_FORECOLOR_SET(LOG_YELLOW);\
-        ex_log_level(EX_LOG_WARN,     tag, format, ##__VA_ARGS__);\
+        ex_log_level(EX_LOG_WARN,     TAG, format, ##__VA_ARGS__);\
         EX_LOG_COLOR_CLEAR();\
     } while (0)
     #else
-    #   define EX_LOGW(tag, format, ...)  ex_log_level(EX_LOG_WARN,     tag, format, ##__VA_ARGS__)
+    #   define EX_LOGW(format, ...)  ex_log_level(EX_LOG_WARN,     TAG, format, ##__VA_ARGS__)
     #endif
 #else
-#   define EX_LOGW(tag, format, ...);  (void)(tag)
+#   define EX_LOGW(format, ...);  (void)(TAG)
 #endif
 
 #if EX_LOG_LEVEL >= EX_LOG_INFO
     #if EX_LOG_COLOR_IS_ENABLE
-    #   define EX_LOGI(tag, format, ...) \
+    #   define EX_LOGI(format, ...) \
     do { \
         EX_LOG_COLOR_CLEAR();\
         EX_LOG_FORECOLOR_SET(LOG_GREEN);\
-        ex_log_level(EX_LOG_INFO,     tag, format, ##__VA_ARGS__);\
+        ex_log_level(EX_LOG_INFO,     TAG, format, ##__VA_ARGS__);\
         EX_LOG_COLOR_CLEAR();\
     } while (0)
     #else
-    #   define EX_LOGI(tag, format, ...)  ex_log_level(EX_LOG_INFO,     tag, format, ##__VA_ARGS__)
+    #   define EX_LOGI(format, ...)  ex_log_level(EX_LOG_INFO,     TAG, format, ##__VA_ARGS__)
     #endif
 #else
-#   define EX_LOGI(tag, format, ...)  (void)(tag)
+#   define EX_LOGI(format, ...)  (void)(TAG)
 #endif
 
 #if EX_LOG_LEVEL >= EX_LOG_DEBUG
     #if EX_LOG_COLOR_IS_ENABLE
-    #   define EX_LOGD(tag, format, ...) \
+    #   define EX_LOGD(format, ...) \
     do { \
         EX_LOG_COLOR_CLEAR();\
         EX_LOG_FORECOLOR_SET(LOG_BLUE);\
-        ex_log_level(EX_LOG_DEBUG,    tag, format, ##__VA_ARGS__);\
+        ex_log_level(EX_LOG_DEBUG,    TAG, format, ##__VA_ARGS__);\
         EX_LOG_COLOR_CLEAR();\
     } while (0)
     #else
-    #   define EX_LOGD(tag, format, ...)  ex_log_level(EX_LOG_DEBUG,    tag, format, ##__VA_ARGS__)
+    #   define EX_LOGD(format, ...)  ex_log_level(EX_LOG_DEBUG,    TAG, format, ##__VA_ARGS__)
     #endif
 #else
-#   define EX_LOGD(tag, format, ...)  (void)(tag)
+#   define EX_LOGD(format, ...)  (void)(TAG)
 #endif
 
 #if EX_LOG_LEVEL >= EX_LOG_VERBOSE
     #if EX_LOG_COLOR_IS_ENABLE
-    #   define EX_LOGV(tag, format, ...) \
+    #   define EX_LOGV(format, ...) \
     do { \
         EX_LOG_COLOR_CLEAR();\
-        ex_log_level(EX_LOG_VERBOSE,  tag, format, ##__VA_ARGS__);\
+        ex_log_level(EX_LOG_VERBOSE,  TAG, format, ##__VA_ARGS__);\
     } while (0)
     #else
-    #   define EX_LOGV(tag, format, ...)  ex_log_level(EX_LOG_VERBOSE,  tag, format, ##__VA_ARGS__)
+    #   define EX_LOGV(format, ...)  ex_log_level(EX_LOG_VERBOSE,  TAG, format, ##__VA_ARGS__)
     #endif
 #else
-#   define EX_LOGV(tag, format, ...)  (void)(tag)
+#   define EX_LOGV(format, ...)  (void)(TAG)
 #endif
 
 

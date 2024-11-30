@@ -15,7 +15,6 @@
 
 /* ==================== [Includes] ========================================== */
 
-#include "./exLog/ex_log.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,10 +40,7 @@ extern "C" {
 
 
 //设置打印等级
-#ifdef EX_LOG_LEVEL
-#undef EX_LOG_LEVEL
-#endif
-#   define EX_LOG_LEVEL EX_LOG_VERBOSE 
+#   define EX_LOG_LEVEL     6 //EX_LOG_VERBOSE 
 
 //支持打印颜色
 #   define EX_LOG_COLOR_ENABLE (1)
@@ -53,7 +49,7 @@ extern "C" {
 
 /* ==================== [Typedefs] ========================================== */
 
-/* ==================== [Global Prototypes] ========================================== */
+/* ==================== [Public Prototypes] ========================================== */
 
 #ifdef __cplusplus
 }/* extern C */

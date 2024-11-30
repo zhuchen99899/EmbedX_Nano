@@ -8,10 +8,15 @@
  * @copyright Copyright (c) 2024
  * 
  */
+
+#include "ex_assert.h"
+#include "../exCommon/ex_complier.h"
+
 /* ==================== [Includes] ========================================== */
 
 /* ==================== [Defines] ========================================== */
 
+ELAB_TAG("exAssert");
 /* ==================== [Macros] ============================================ */
 
 /* ==================== [Typedefs] ========================================== */
@@ -22,4 +27,30 @@
 
 /* ==================== [Static Functions] ================================== */
 
-/* ==================== [Global Functions] ================================== */
+/* ==================== [Public Functions] ================================== */
+
+/**
+ * @brief customize_assert
+ * 
+ * @return EX_Weak 
+ */
+EX_WEAK void ex_assert_customize(void)
+{
+    //出现断言错误，卡死程序
+    while (1)
+    {
+        /* code */
+    }
+
+}
+
+/**
+ * @brief customize_assert
+ * 
+ */
+void _assert(void)
+{
+    EX_LOGD("Assert failure, EmbedX frezz program!!! ");
+    ex_assert_customize();
+
+}

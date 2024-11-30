@@ -1,22 +1,23 @@
 
 #include "../../exLib/ex_lib.h"
 
-const char *tag="test";
-
+ELAB_TAG("MAIN");
 
 
 void functionA()
 {
 
-EX_LOGV(tag,"hello world\r\n");
-EX_LOGD(tag,"hello world\r\n");
-EX_LOGI(tag,"hello world\r\n");
-EX_LOGW(tag,"hello world\r\n");
-EX_LOGE(tag,"hello world\r\n");
-EX_LOGU(tag,"hello world\r\n");
+EX_LOGV("hello world\r\n");
+EX_LOGD("hello world\r\n");
+EX_LOGI("hello world\r\n");
+EX_LOGW("hello world\r\n");
+EX_LOGE("hello world\r\n");
+EX_LOGU("hello world\r\n");
 }
+
 void main()
 {
+    
     while(1)
     {
         

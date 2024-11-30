@@ -14,15 +14,16 @@ extern "C" {
 #include "exstd/ex_stdint.h"
 #include "exstd/ex_stdstring.h"
 #include "exCommon/ex_common.h"
-#include "exList/ex_list.h"
 #include "exCommon/ex_bit_ctrl.h"
+#include "exList/ex_list.h"
+#include "exAssert/ex_assert.h"
 /* ==================== [Defines] ========================================== */
 
 /* ==================== [Macros] ============================================ */
 
 /* ==================== [Typedefs] ========================================== */
 
-/* ==================== [Global Prototypes] ========================================== */
+/* ==================== [Public Prototypes] ========================================== */
 
 #ifdef __cplusplus
 }
