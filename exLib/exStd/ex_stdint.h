@@ -17,6 +17,14 @@
 
 #if EX_STDINT_IS_ENABLE //当前平台支持标准stdint
 # include <stdint.h>
+
+#if defined(__x86_64__) || defined(__aarch64__)
+typedef int64_t                         ex_pointer_t;
+#else
+typedef int32_t                         ex_pointer_t;
+
+#endif
+
 #endif
 
 

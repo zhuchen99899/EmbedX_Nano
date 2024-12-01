@@ -26,7 +26,7 @@ extern "C" {
 #define EX_LOG_DEBUG            (5)
 #define EX_LOG_VERBOSE          (6)
               
-#define ELAB_TAG(_tag)  static const char *TAG = _tag
+#define EX_TAG(_tag)  static const char *TAG = _tag
 
 //启用打印到二进制文件
 #if EX_LOG_DUMP_IS_ENABLE

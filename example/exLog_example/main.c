@@ -1,7 +1,7 @@
 
 #include "../../exLib/ex_lib.h"
 
-ELAB_TAG("MAIN");
+EX_TAG("MAIN");
 
 
 void functionA()

@@ -1,18 +1,16 @@
 set(LIB_NAME "exLib")
 
-project(exLogExample C)
-
 set(SRC_DIR "${CMAKE_CURRENT_LIST_DIR}/")
-file(GLOB_RECURSE C_FILES "${SRC_DIR}*.c")
+file(GLOB_RECURSE LIB_C_FILES "${SRC_DIR}*.c")
 
 message("--------------------------------")
-message("${C_FILES}")
+message("${LIB_C_FILES}")
 message("--------------------------------")
 
 # 构建静态库
 add_library(${LIB_NAME} STATIC "") # exLib.a
 
-target_sources(${LIB_NAME} PUBLIC "${C_FILES}")
+target_sources(${LIB_NAME} PUBLIC "${LIB_C_FILES}")
 
 
 
