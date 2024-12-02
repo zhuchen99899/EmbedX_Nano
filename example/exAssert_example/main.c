@@ -33,6 +33,7 @@ functionA(0);
 // functionC(A);
     while (1)
     {
+
         EX_LOGV("RUNNING\r\n");
     }
     

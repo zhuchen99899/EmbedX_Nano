@@ -5,7 +5,8 @@ EX_TAG("MAIN");
 
 void main()
 {
-    ex_export_init();
+    //ex_export_init();
+    xf_init_explicit_call_registry();
     while(1)
     {
     //EX_LOGV("RUNNING\r\n");

@@ -22,12 +22,12 @@ extern "C" {
 
 #define EX_EXPORT_BY_SORT_SECTION     (0) //ATTRIBUTE SECTION 并使用magichead_tail方法，链接器默认soft排序时不需要修改linker脚本
 #define EX_EXPORT_BY_SECTION          (1) //ATTRIBUTE SECTION 需要修改链接器脚本
-#define EX_EXPORT_BY_CONSTRUCTOR      (2) //ATTRIBUTE CONSTRUCTOR 方法
+#define EX_EXPORT_BY_BFOREMAIN_CONSTRUCTOR      (2) //ATTRIBUTE CONSTRUCTOR 方法
 #define EX_EXPORT_BY_REGISTRY         (3)//显示注册方法
 /* ==================== [Defines] ========================================== */
 //默认导出方法
 #if !defined(EX_EXPROT_METHOD)
-#   define EX_EXPROT_METHOD          EX_EXPORT_BY_CONSTRUCTOR
+#   define EX_EXPROT_METHOD          EX_EXPORT_BY_BFOREMAIN_CONSTRUCTOR
 #endif
 /* ==================== [Macros] ============================================ */
 
@@ -41,11 +41,16 @@ enum ex_export_level{
     EXPORT_LEVEL_COMPONENT = 4,
     EXPORT_LEVEL_APP = 5,
     EXPORT_LEVEL_USER = 6
-};
+}ex_export_level_t;
 
 // 如果你设置的模式不是这三个，则会报错
-#if EX_EXPROT_METHOD != EX_EXPORT_BY_SOFT_SECTION && EX_EXPROT_METHOD != EX_EXPORT_BY_SECTION && EX_EXPROT_METHOD != EX_EXPORT_BY_CONSTRUCTOR && EX_EXPROT_METHOD != EX_EXPORT_BY_REGISTRY
-#error "EX_EXPROT_METHOD must be one of: EX_EXPORT_BY_SOFT_SECTION, EX_EXPORT_BY_SECTION, EX_EXPORT_BY_CONSTRUCTOR,EX_EXPORT_BY_REGISTRY"
+#if EX_EXPROT_METHOD != EX_EXPORT_BY_SORT_SECTION && \
+    EX_EXPROT_METHOD != EX_EXPORT_BY_SECTION && \
+    EX_EXPROT_METHOD != EX_EXPORT_BY_BFOREMAIN_CONSTRUCTOR && \
+    EX_EXPROT_METHOD != EX_EXPORT_BY_REGISTRY_CONSTRUCTOR && \
+    EX_EXPROT_METHOD != EX_EXPORT_BY_REGISTRY
+
+#error "EX_EXPROT_METHOD must be one of: EX_EXPORT_BY_SOFT_SECTION, EX_EXPORT_BY_SECTION, EX_EXPORT_BY_BFOREMAIN_CONSTRUCTOR,EX_EXPORT_BY_REGISTRY_CONSTRUCTOR,EX_EXPORT_BY_REGISTRY"
 #endif
 /* ==================== [Public Prototypes] ========================================== */
 

@@ -1,8 +1,5 @@
 #ifndef _EX_EXPORT_CONSTRUCTOR_H_
 #define _EX_EXPORT_CONSTRUCTOR_H_
-
-
-
 /* ==================== [Includes] ========================================== */
 
 #include "../../../exLib/ex_lib.h"
@@ -14,7 +11,7 @@ extern "C" {
 
 
 /* ==================== [Defines] ========================================== */
-#if EX_EXPROT_METHOD == EX_EXPORT_BY_CONSTRUCTOR
+#if EX_EXPROT_METHOD == EX_EXPORT_BY_BFOREMAIN_CONSTRUCTOR
 /* ==================== [Macros] ============================================ */
 /* public export ------------------------------------------------------------ */
 /**

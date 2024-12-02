@@ -4,8 +4,9 @@
 
 
 /* ==================== [Includes] ========================================== */
-#include "./section_sort/ex_export_section_sort.h"
+//#include "./section_sort/ex_export_section_sort.h"
 #include "./constructor/ex_export_constructor.h"
+#include "./register/ex_export_register.h"
 #ifdef __cplusplus
 extern "C" {
 #endif

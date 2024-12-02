@@ -1,0 +1,9 @@
+D:/code/Embedded/EmbedXNano_git_work/CMakeFiles/exExpoirtExample.dir
+D:/code/Embedded/EmbedXNano_git_work/CMakeFiles/edit_cache.dir
+D:/code/Embedded/EmbedXNano_git_work/CMakeFiles/rebuild_cache.dir
+D:/code/Embedded/EmbedXNano_git_work/exLib/CMakeFiles/exLib.dir
+D:/code/Embedded/EmbedXNano_git_work/exLib/CMakeFiles/edit_cache.dir
+D:/code/Embedded/EmbedXNano_git_work/exLib/CMakeFiles/rebuild_cache.dir
+D:/code/Embedded/EmbedXNano_git_work/component/exExport/CMakeFiles/exExport.dir
+D:/code/Embedded/EmbedXNano_git_work/component/exExport/CMakeFiles/edit_cache.dir
+D:/code/Embedded/EmbedXNano_git_work/component/exExport/CMakeFiles/rebuild_cache.dir
