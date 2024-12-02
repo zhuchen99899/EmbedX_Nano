@@ -29,9 +29,15 @@
 
 ex_err_t ex_export_init(void)
 {
+    ex_err_t ret;
     #if(EX_EXPROT_METHOD==EX_EXPORT_BY_SORT_SECTION)
         ex_export_section_sort_init();
     #endif
 
-    return EX_OK;
+    #if(EX_EXPROT_METHOD==EX_EXPORT_BY_CONSTRUCTOR)
+    UNUSED(ret);
+    #endif
+
+    ret=EX_OK;
+    return ret;
 }

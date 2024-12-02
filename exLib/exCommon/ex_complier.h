@@ -59,6 +59,7 @@ extern "C" {
     #define EX_USED                   __attribute__((used))
     #define EX_ALIGN(n)               __attribute__((aligned(n)))
     #define EX_WEAK                   __attribute__((weak))
+    #define EX_COSTRUCTOR(LEVEL)    __attribute__(constructor(LEVEL))
     #define ex_inline                 static __inline
 
 #elif defined (__IAR_SYSTEMS_ICC__)           /* for IAR Compiler */
@@ -69,6 +70,7 @@ extern "C" {
     #define EX_PRAGMA(x)              _Pragma(#x)
     #define EX_ALIGN(n)               EX_PRAGMA(data_alignment=n)
     #define EX_WEAK                   __weak
+    #define EX_COSTRUCTOR(LEVEL)      __attribute__(constructor(LEVEL))
     #define ex_inline                 static inline
 
 #elif defined (__GNUC__)                      /* GNU GCC Compiler */
@@ -78,6 +80,7 @@ extern "C" {
     #define EX_USED                   __attribute__((used))
     #define EX_ALIGN(n)               __attribute__((aligned(n)))
     #define EX_WEAK                   __attribute__((weak))
+    #define EX_COSTRUCTOR(LEVEL)      __attribute__((constructor(LEVEL)))
     #define ex_inline                 static inline
 
 #else

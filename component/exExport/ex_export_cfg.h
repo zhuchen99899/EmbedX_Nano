@@ -27,7 +27,7 @@ extern "C" {
 /* ==================== [Defines] ========================================== */
 //默认导出方法
 #if !defined(EX_EXPROT_METHOD)
-#   define EX_EXPROT_METHOD          EX_EXPORT_BY_SORT_SECTION
+#   define EX_EXPROT_METHOD          EX_EXPORT_BY_CONSTRUCTOR
 #endif
 /* ==================== [Macros] ============================================ */
 
