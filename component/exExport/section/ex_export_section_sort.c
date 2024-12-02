@@ -22,8 +22,6 @@ EX_TAG("ex_export_section_sort");
 static ex_export_sort_t *export_init_table = NULL;
 static uint32_t count_export_init = 0;
 static int8_t export_level_max = INT8_MAX;
-/*************  ✨ Codeium Command ⭐  *************/
-/******  472480e3-506a-48e9-b00a-958bb222e66a  *******/
 static void module_null_init(void)
 {
     /* NULL */

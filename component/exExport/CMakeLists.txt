@@ -15,7 +15,7 @@ target_sources(${LIB_NAME} PUBLIC "${EXPORT_C_FILES}")
 
 
 
-target_include_directories(${LIB_NAME} PUBLIC "${CMAKE_CURRENT_LIST_DIR}/section_sort")
+target_include_directories(${LIB_NAME} PUBLIC "${CMAKE_CURRENT_LIST_DIR}/section")
 target_include_directories(${LIB_NAME} PUBLIC "${CMAKE_CURRENT_LIST_DIR}/constructor")
 
 target_link_libraries(${LIB_NAME} PUBLIC "exLib")# 依赖
