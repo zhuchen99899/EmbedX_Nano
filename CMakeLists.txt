@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 3.20)
 set(__PROJ_NAME__ "exExpoirtExample")
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/output)
-SET(CMAKE_BUILD_TYPE "Debug")
+SET(CMAKE_BUILD_TYPE "RELEASE")
 set (CMAKE_EXE_LINKER_FLAGS "-Xlinker -Map=bdc.map")
 
 project(${__PROJ_NAME__} LANGUAGES C)
