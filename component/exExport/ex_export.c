@@ -30,9 +30,9 @@
 ex_err_t ex_export_init(void)
 {
     ex_err_t ret;
-    #if(EX_EXPROT_METHOD==EX_EXPORT_BY_SORT_SECTION)
-        ex_export_section_sort_init();
-    #elif (EX_EXPROT_METHOD==EX_EXPORT_BY_BFOREMAIN_CONSTRUCTOR)
+    #if(EX_EXPROT_METHOD==EX_EXPORT_BY_SECTION)
+        ex_export_section_init();
+    #elif (EX_EXPROT_METHOD==EX_EXPORT_BY_CONSTRUCTOR)
         UNUSED(ret);
     #endif
 

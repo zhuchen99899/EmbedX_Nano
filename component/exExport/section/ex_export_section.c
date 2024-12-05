@@ -9,7 +9,7 @@
  * 
  */
 /* ==================== [Includes] ========================================== */
-#include "ex_export_section_sort.h"
+#include "ex_export_section.h"
 /* ==================== [Defines] ========================================== */
 #if EX_EXPROT_METHOD == EX_EXPORT_BY_SORT_SECTION
 
@@ -38,7 +38,7 @@ INIT_EXPORT(module_null_init, EXPORT_LEVEL_BSP);
  */
 /* ==================== [Public Functions] ================================== */
 
-static void _get_init_export_table(void)
+static void section_get_init_export_table(void)
 {   
     ex_export_sort_t *func_block = (ex_export_sort_t *)&init_module_null_init;
     ex_pointer_t address_last;
@@ -81,7 +81,7 @@ static void _get_init_export_table(void)
  * 
  * @param level init_level
  */
-static void _init_func_execute(int8_t level)
+static void section_init_func_execute(int8_t level)
 {
     /* Execute the poll function in the specific level. */
     for (uint32_t i = 0; i < count_export_init; i ++)
@@ -99,13 +99,13 @@ static void _init_func_execute(int8_t level)
  * @brief export_section_sort_init
  * @note 只支持指定编译器section自动排序
  */
-void ex_export_section_sort_init(void)
+void ex_export_section_init(void)
 {
-    _get_init_export_table();
+    section_get_init_export_table();
     for (uint8_t level = 0; level < export_level_max; level ++) //执行所有初始等级的ex_export 段函数
     {
     
-    _init_func_execute(level);
+    section_init_func_execute(level);
     }
 
 }

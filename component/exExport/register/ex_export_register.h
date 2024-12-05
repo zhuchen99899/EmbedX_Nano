@@ -7,59 +7,39 @@
 #include "../../../exLib/ex_lib.h"
 #include "../ex_export_cfg.h"
 
+
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-#if     EX_EXPROT_METHOD == EX_EXPORT_BY_REGISTRY_CONSTRUCTOR || \
+#if     EX_EXPROT_METHOD == EX_EXPORT_BY_CONSTRUCTOR || \
         EX_EXPROT_METHOD == EX_EXPORT_BY_REGISTRY
 
 
-/**
- * @brief 初始化函数类型.
- *
- * @return int
- *      - 0             无异常
- *      - (OTHER)       错误码见 @ref ex_err_code_t.
- */
-typedef int (*ex_export_fn_t)(void);
-
-
-
-
-
 /* ==================== [Typedefs] ========================================== */
-/**
- * @brief 初始化函数详情结构体.
- *
- * desc: description.
- *
- *
- */
-typedef struct _ex_init_registry_desc_t {
-    void *func;                         /*!< 初始化函数 */
-    const char *func_name;              /*!< 初始化函数的函数名 */
-} ex_init_registry_desc_t;
+
 
 /**
  * @brief 初始化函数链表结构体.
  *
  * @note 基于 registry 初始化时用.
  */
-typedef struct _ex_init_registry_desc_node_t {
+typedef struct _ex_export_registry_node_t {
     ex_list_t node;
-    const ex_init_registry_desc_t *const p_desc;
-} ex_init_registry_desc_node_t;
+    const ex_export_t *const _export;
+} _ex_export_registry_node_t;
 
 
 /* ==================== [Public Prototypes] ========================================== */
 /**
- * @brief （内部函数）注册初始化函数，无需直接调用，使用宏调用
+ * @brief 注册初始化函数，无需直接调用，使用宏调用
  *
- * @param p_desc_node 函数详情结构体
- * @param type 注册初始化函数的类型
+ * @param _node 函数详情结构体
+ * @param _level 注册初始化函数的初始化等级
  */
-void ex_export_registry_desc_node(ex_export_registry_desc_node_t *p_desc_node, ex_export_level_t level);
+void ex_export_registry_node(_ex_export_registry_node_t *registry_node);
 
 /**
  * @brief 注册函数收集后，统一在此调用初始化函数
@@ -67,11 +47,31 @@ void ex_export_registry_desc_node(ex_export_registry_desc_node_t *p_desc_node, e
  */
 void ex_export_from_registry(void);
 
+#endif//EX_EXPROT_METHOD == EX_EXPORT_BY_CONSTRUCTOR EX_EXPORT_BY_REGISTRY   
+
+
+
 
 /* ==================== [Macros] ============================================ */
+#if EX_EXPROT_METHOD == EX_EXPORT_BY_REGISTRY
 
+#define INIT_EXPORT(_func, _level)   \
+    void  init_##_func(void) { \
+        static const ex_export_t CONCAT(__ex_export_, _func) = { \
+        .name = XSTR(_func),                                                   \
+        .func = (void *)&_func,                                                \
+        .level = _level,                                                       \
+        };\
+        static _ex_export_registry_node_t CONCAT(__ex_init_node_, _func) = { \
+            .node       = EX_LIST_HEAD_INIT(CONCAT(__ex_init_node_, _func).node), \
+            ._export     = &CONCAT(__ex_export_, _func), \
+        };\
+        ex_export_registry_node(&CONCAT(__ex_init_node_, _func));\
+    \
+    };\
 
-#endif
+#endif//EX_EXPROT_METHOD == EX_EXPORT_BY_REGISTRY
+
 
 
 #ifdef __cplusplus

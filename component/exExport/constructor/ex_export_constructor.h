@@ -11,7 +11,7 @@ extern "C" {
 
 
 /* ==================== [Defines] ========================================== */
-#if EX_EXPROT_METHOD == EX_EXPORT_BY_BFOREMAIN_CONSTRUCTOR
+#if EX_EXPROT_METHOD == EX_EXPORT_BY_CONSTRUCTOR
 /* ==================== [Macros] ============================================ */
 /* public export ------------------------------------------------------------ */
 /**

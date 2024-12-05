@@ -8,22 +8,22 @@
  * @copyright Copyright (c) 2024
  * 
  */
-#ifndef _EX_EXPORT_SECTION_SORT_H_
-#define _EX_EXPORT_SECTION_SORT_H_
+#ifndef _EX_EXPORT_SECTION_H_
+#define _EX_EXPORT_SECTION_H_
 
 
 
 /* ==================== [Includes] ========================================== */
 
 
-#include "../../../exLib/ex_lib.h"
+
 #include "../ex_export_cfg.h"
 
 #if !defined(__GNUC__)
 #   error "section 需要启用 GNU 特性"
 #endif
 
-#if EX_EXPROT_METHOD == EX_EXPORT_BY_SORT_SECTION
+#if EX_EXPROT_METHOD == EX_EXPORT_BY_SECTION
 
 #ifdef __cplusplus
 extern "C" {
@@ -31,14 +31,6 @@ extern "C" {
 
 #define EXPORT_INIT_MAGIC_ID                  (0xa5a5a5a5)
 
-typedef struct ex_export_sort
-{
-    uint32_t magic_head;
-    const char *name;
-    void *func;
-    int8_t level;
-    uint32_t magic_tail;
-}ex_export_sort_t;
 
 
 /* public export ------------------------------------------------------------ */
@@ -50,13 +42,13 @@ typedef struct ex_export_sort
   * @example INIT_EXPORT (bsp_init,EXPORT_LEVEL_BSP) 
   */
 #define INIT_EXPORT(_func, _level)                                             \
-    EX_USED const ex_export_sort_t init_##_func EX_SECTION("ex_export") =    \
+    EX_USED const ex_export_t init_##_func EX_SECTION("ex_export") =    \
     {                                                                          \
+        .magic_head = EXPORT_INIT_MAGIC_ID,                                    \
         .name = XSTR(_func),                                                   \
         .func = (void *)&_func,                                                \
         .level = _level,                                                       \
-        .magic_head = EXPORT_INIT_MAGIC_ID,                                         \
-        .magic_tail = EXPORT_INIT_MAGIC_ID,                                         \
+        .magic_tail = EXPORT_INIT_MAGIC_ID,                                    \
     }
 
 /* ==================== [Defines] ========================================== */
@@ -66,7 +58,7 @@ typedef struct ex_export_sort
 /* ==================== [Typedefs] ========================================== */
 
 /* ==================== [Public Prototypes] ========================================== */
-void ex_export_section_sort_init(void);
+void ex_export_section_init(void);
 #ifdef __cplusplus
 }/* extern C */
 #endif
