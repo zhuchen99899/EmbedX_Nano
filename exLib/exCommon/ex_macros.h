@@ -95,11 +95,8 @@ extern "C" {
  */
 
 #ifndef container_of
-#define container_of(pointer, type, member)                                    \
-    ({                                                                         \
-        void *__pointer = (void *)(pointer);                                   \
-        ((type *)(__pointer - offsetof(type, member)));                        \
-    })
+#define container_of(ptr, type, member)  \
+    ((type *)((char *)(ptr) - offsetof(type, member)))
 #endif
 
 

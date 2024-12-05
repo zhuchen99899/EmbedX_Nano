@@ -33,7 +33,7 @@ ex_err_t ex_export_init(void)
     #if(EX_EXPROT_METHOD==EX_EXPORT_BY_SECTION)
         ex_export_section_init();
     #elif (EX_EXPROT_METHOD==EX_EXPORT_BY_CONSTRUCTOR)
-        UNUSED(ret);
+        ex_export_registry_init();
     #endif
 
 

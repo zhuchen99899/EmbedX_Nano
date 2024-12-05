@@ -16,6 +16,10 @@ add_subdirectory(component/exExport)
 # file(GLOB MAIN_SRC  CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/example/exAssert_example/*.c")
 file(GLOB MAIN_SRC  CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/example/exExport_example/*.c")
 
+message("--------------------------------")
+message("${MAIN_SRC}")
+message("--------------------------------")
+
 add_executable(${PROJECT_NAME})
 target_sources(${PROJECT_NAME} PRIVATE "${MAIN_SRC}")
 

@@ -19,7 +19,7 @@ EX_TAG("ex_export_section_sort");
 /* ==================== [Typedefs] ========================================== */
 
 /* ==================== [Static Prototypes] ========================================== */
-static ex_export_sort_t *export_init_table = NULL;
+static ex_export_t *export_init_table = NULL;
 static uint32_t count_export_init = 0;
 static int8_t export_level_max = INT8_MAX;
 static void module_null_init(void)
@@ -40,13 +40,13 @@ INIT_EXPORT(module_null_init, EXPORT_LEVEL_BSP);
 
 static void section_get_init_export_table(void)
 {   
-    ex_export_sort_t *func_block = (ex_export_sort_t *)&init_module_null_init;
+    ex_export_t *func_block = (ex_export_t *)&init_module_null_init;
     ex_pointer_t address_last;
         
     while (1)
     { //向上寻找最新属于ex_export的函数
-        address_last = ((ex_pointer_t)func_block - sizeof(ex_export_sort_t));
-        ex_export_sort_t *table = (ex_export_sort_t *)address_last;
+        address_last = ((ex_pointer_t)func_block - sizeof(ex_export_t));
+        ex_export_t *table = (ex_export_t *)address_last;
         if (table->magic_head != EXPORT_INIT_MAGIC_ID ||
             table->magic_tail != EXPORT_INIT_MAGIC_ID)
         {

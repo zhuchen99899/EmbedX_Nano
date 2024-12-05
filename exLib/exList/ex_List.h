@@ -572,7 +572,7 @@ static inline void ex_list_splice_tail_init(ex_list_t *list, ex_list_t *head)
  * @return 结构体的地址.
  */
 #define ex_list_entry(ptr, type, member) \
-    ex_container_of(ptr, type, member)
+    container_of(ptr, type, member)
 
 
 /**
@@ -648,7 +648,7 @@ static inline void ex_list_splice_tail_init(ex_list_t *list, ex_list_t *head)
 /**
  * @attention 注意, 由于移除了 GUN 的 `typeof`,
  * 以下带有 `_entry` 后缀的宏都必须显式写出包含链表的结构体的类型，
- * 详情见 @ref ex_container_of.
+ * 详情见 @ref container_of.
  *
  * pos 和 n 的数据类型必须相同!
  */
