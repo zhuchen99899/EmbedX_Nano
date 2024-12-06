@@ -24,8 +24,8 @@
 extern "C" {
 #endif
 
-#if     EX_EXPROT_METHOD == EX_EXPORT_BY_CONSTRUCTOR || \
-        EX_EXPROT_METHOD == EX_EXPORT_BY_REGISTRY
+#if     EX_EXPROT_METHOD == EX_EXPORT_BY_CONSTRUCTOR 
+
 
 
 /* ==================== [Typedefs] ========================================== */
@@ -51,45 +51,23 @@ typedef struct ex_export_registry_node_t {
  */
 void ex_export_registry_node(ex_export_registry_node_t *registry_node);
 
+
+
 /**
  * @brief 注册函数收集后，统一在此调用初始化函数
  *
  */
 void ex_export_registry_init(void);
 
-#endif//EX_EXPROT_METHOD == EX_EXPORT_BY_CONSTRUCTOR EX_EXPORT_BY_REGISTRY   
+
 
 
 
 
 /* ==================== [Macros] ============================================ */
-#if EX_EXPROT_METHOD == EX_EXPORT_BY_REGISTRY
-/**
-  * @brief  Initialization function exporting macro.
-  * @param  _func   The initialization function.
-  * @param  _level  The export level, [0, 127].
-  * @retval None.
-  * @example INIT_EXPORT (bsp_init,EXPORT_LEVEL_BSP) 
-  */
-#define INIT_EXPORT(_func, _level)   \
-    void  init_##_func(void) { \
-        static const ex_export_t CONCAT(__ex_export_, _func) = { \
-        .name = XSTR(_func),                                                   \
-        .func = (void *)&_func,                                                \
-        .level = _level,                                                       \
-        };\
-        static ex_export_registry_node_t CONCAT(__ex_init_node_, _func) = { \
-            .node       = EX_LIST_HEAD_INIT(CONCAT(__ex_init_node_, _func).node), \
-            ._export     = &CONCAT(__ex_export_, _func), \
-        };\
-        ex_export_registry_node(&CONCAT(__ex_init_node_, _func));\
-    \
-    };\
-
-#endif//EX_EXPROT_METHOD == EX_EXPORT_BY_REGISTRY
 
 
-#if EX_EXPROT_METHOD == EX_EXPORT_BY_CONSTRUCTOR
+
 /**
   * @brief  Initialization function exporting macro.
   * @param  _func   The initialization function.

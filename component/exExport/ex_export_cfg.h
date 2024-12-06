@@ -22,12 +22,12 @@ extern "C" {
 
 #define EX_EXPORT_BY_SECTION                    (0) //ATTRIBUTE SECTION 并使用magichead_tail方法，链接器默认soft排序时不需要修改linker脚本
 #define EX_EXPORT_BY_CONSTRUCTOR                (1) //ATTRIBUTE CONSTRUCTOR 方法
-#define EX_EXPORT_BY_REGISTRY                   (2)//显示注册方法
 /* ==================== [Defines] ========================================== */
 //默认导出方法
 #if !defined(EX_EXPROT_METHOD)
 #   define EX_EXPROT_METHOD          EX_EXPORT_BY_CONSTRUCTOR
 #endif
+
 /* ==================== [Macros] ============================================ */
 
 /* ==================== [Typedefs] ========================================== */
@@ -61,10 +61,9 @@ typedef struct ex_export
 
 // 如果你设置的模式不是这三个，则会报错
 #if  EX_EXPROT_METHOD != EX_EXPORT_BY_SECTION && \
-    EX_EXPROT_METHOD != EX_EXPORT_BY_CONSTRUCTOR && \
-    EX_EXPROT_METHOD != EX_EXPORT_BY_REGISTRY
+    EX_EXPROT_METHOD != EX_EXPORT_BY_CONSTRUCTOR 
 
-#error "EX_EXPROT_METHOD must be one of: EX_EXPORT_BY_SECTION, EX_EXPORT_BY_CONSTRUCTOR, EX_EXPORT_BY_REGISTRY!!!"
+#error "EX_EXPROT_METHOD must be EX_EXPORT_BY_SECTION or EX_EXPORT_BY_CONSTRUCTOR!!!"
 #endif
 /* ==================== [Public Prototypes] ========================================== */
 

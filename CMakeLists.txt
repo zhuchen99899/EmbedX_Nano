@@ -1,9 +1,9 @@
 cmake_minimum_required (VERSION 3.20)
 
-set(__PROJ_NAME__ "exExpoirtExample")
+set(__PROJ_NAME__ "exExport_example")
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/output)
-SET(CMAKE_BUILD_TYPE "RELEASE")
+SET(CMAKE_BUILD_TYPE "Debug")
 set (CMAKE_EXE_LINKER_FLAGS "-Xlinker -Map=bdc.map")
 
 project(${__PROJ_NAME__} LANGUAGES C)
@@ -12,6 +12,7 @@ project(${__PROJ_NAME__} LANGUAGES C)
 add_subdirectory(exLib) # exLib.a
 add_subdirectory(component/exExport)
 
+#file(GLOB MAIN_SRC  CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/example/exList_example/*.c")
 #file(GLOB MAIN_SRC  CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/example/exLog_example/*.c")
 # file(GLOB MAIN_SRC  CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/example/exAssert_example/*.c")
 file(GLOB MAIN_SRC  CONFIGURE_DEPENDS "${CMAKE_CURRENT_LIST_DIR}/example/exExport_example/*.c")
