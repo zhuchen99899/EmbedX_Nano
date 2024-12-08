@@ -19,7 +19,7 @@
 #include "ex_std_cfg.h"
 
 #if EX_STRING_IS_ENABLE //当前平台支持标准stdstring
-#   include <string.h>
+#include <string.h>
 #endif
 
 #ifdef __cplusplus

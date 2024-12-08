@@ -12,6 +12,7 @@ extern "C" {
 #include "exStd/ex_stdbool.h"
 #include "exStd/ex_stddef.h"
 #include "exStd/ex_stdint.h"
+#include "exStd/ex_stdlib.h"
 #include "exStd/ex_stdstring.h"
 #include "exCommon/ex_common.h"
 #include "exCommon/ex_bit_ctrl.h"
