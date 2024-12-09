@@ -11,6 +11,7 @@
 
 #include "../../exLib/ex_lib.h"
 #include "exNanoMutex/ex_nano_mutex.h"
+#include "exNanoSemaphore/ex_nano_sem.h"
 #include "cmsis_os2.h"
 EX_TAG("CMSIS_OS2");
 
@@ -29,7 +30,8 @@ EX_TAG("CMSIS_OS2");
 /* ==================== [Static Functions] ================================== */
 
 /* ==================== [Public Functions] ================================== */
-/**创建互斥锁 */
+
+/*互斥锁 */
 osMutexId_t osMutexNew (const osMutexAttr_t *attr)
 {
     
@@ -53,7 +55,7 @@ osStatus_t osMutexAcquire (osMutexId_t mutex_id, uint32_t timeout)
     while (mutex->lock == true)
     {
             if (elapsed >= timeout) {
-                return osErrorTimeout;
+                EX_LOGE("osErrorTimeout");
             }
             elapsed++;
     }
@@ -91,5 +93,70 @@ osStatus_t osMutexDelete (osMutexId_t mutex_id)
     EX_MUTEX_DELETE(mutex);
     ex_free(mutex);
 
+    return osOK;
+}
+
+
+/*信号量 */
+
+osSemaphoreId_t osSemaphoreNew (uint32_t max_count, uint32_t initial_count, const osSemaphoreAttr_t *attr)
+{
+    ex_assert(initial_count <= max_count);
+    
+    ex_nano_sem_t *sem =ex_malloc(sizeof(ex_nano_sem_t));
+    if(attr == NULL)
+    {
+       EX_SEMAPHORE_CREATE(sem,NULL,initial_count,max_count); 
+    }
+    else{
+        EX_SEMAPHORE_CREATE(sem,attr->name,initial_count,max_count);
+    }
+
+
+    return (osSemaphoreId_t)sem;
+}
+
+osStatus_t osSemaphoreAcquire (osSemaphoreId_t semaphore_id, uint32_t timeout)
+{
+    ex_assert(semaphore_id != NULL);
+    ex_nano_sem_t *sem = (ex_nano_sem_t *)semaphore_id;
+    uint32_t elapsed = 0;
+    while(sem->count == 0)
+    {
+        if (elapsed >= timeout) {
+            EX_LOGE("osErrorTimeout");
+        }
+        elapsed++;
+    }
+    if(sem->count > 0)
+    {
+        EX_SEMAPHORE_ACQUIRE(sem);
+        return osOK;
+    }
+
+    return osError;
+    
+}
+
+osStatus_t osSemaphoreRelease (osSemaphoreId_t semaphore_id)
+{
+
+    ex_assert(semaphore_id != NULL);
+    ex_nano_sem_t *sem = (ex_nano_sem_t *)semaphore_id;
+
+    if (sem->count < sem->max_count) { // 释放信号量时检查是否超出最大计数
+        EX_SEMAPHORE_SIGNAL(sem); // 释放信号量（增计数）
+        return osOK;
+    }
+
+    return osErrorResource; // 超出最大计数返回错误
+}
+
+osStatus_t osSemaphoreDelete (osSemaphoreId_t semaphore_id)
+{
+    ex_assert(semaphore_id != NULL);
+    ex_nano_sem_t *sem = (ex_nano_sem_t *)semaphore_id;
+    EX_SEMAPHORE_DELETE(sem);
+    ex_free(sem);
     return osOK;
 }

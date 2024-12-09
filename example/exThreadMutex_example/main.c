@@ -26,10 +26,6 @@ static osMutexAttr_t mutexAttr = {
     if (ret == osOK) {
         EX_LOGD("Mutex acquired successfully.\n");
     }
-    else if (ret == osErrorTimeout)
-    {
-        EX_LOGW("Mutex acquire timeout.\n"); 
-    } 
     else {
         EX_LOGD("Failed to acquire mutex. \n");
     }
@@ -50,10 +46,6 @@ static osMutexAttr_t mutexAttr = {
     if (ret == osOK) {
         EX_LOGD("Mutex acquired successfully.\n");
     }
-    else if (ret == osErrorTimeout)
-    {
-        EX_LOGW("Mutex acquire timeout.\n"); 
-    } 
     else {
         EX_LOGD("Failed to acquire mutex. \n");
     }
@@ -63,10 +55,6 @@ static osMutexAttr_t mutexAttr = {
     if (ret == osOK) {
         EX_LOGD("Mutex acquired successfully.\n");
     }
-    else if (ret == osErrorTimeout)
-    {
-        EX_LOGW("Mutex acquire timeout.\n"); 
-    } 
     else {
         EX_LOGD("Failed to acquire mutex. \n");
     }

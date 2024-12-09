@@ -71,13 +71,13 @@ typedef struct {
   uint32_t                   cb_size;   ///< size of provided memory for control block
 } osMutexAttr_t;
 
-// /// Attributes structure for semaphore.
-// typedef struct {
-//   const char                   *name;   ///< name of the semaphore
-//   uint32_t                 attr_bits;   ///< attribute bits
-//   void                      *cb_mem;    ///< memory for control block
-//   uint32_t                   cb_size;   ///< size of provided memory for control block
-// } osSemaphoreAttr_t;
+/// Attributes structure for semaphore.
+typedef struct {
+  const char                   *name;   ///< name of the semaphore
+  uint32_t                 attr_bits;   ///< attribute bits
+  void                      *cb_mem;    ///< memory for control block
+  uint32_t                   cb_size;   ///< size of provided memory for control block
+} osSemaphoreAttr_t;
 
 // /// Attributes structure for timer.
 // typedef struct {
@@ -108,11 +108,13 @@ typedef struct {
  /// \details Mutex ID identifies the mutex.
 typedef void *osMutexId_t;
 
+
+/// \details Semaphore ID identifies the semaphore.
+typedef void *osSemaphoreId_t;
+
 // /// Timer callback function.
 // typedef void (*osTimerFunc_t) (void *argument);
 
-// /// \details Semaphore ID identifies the semaphore.
-// typedef void *osSemaphoreId_t;
 
 // /// \details Timer ID identifies the timer.
 // typedef void *osTimerId_t;
@@ -148,38 +150,30 @@ osStatus_t osMutexDelete (osMutexId_t mutex_id);
 
 //  ==== Semaphore Management Functions ====
 
-// /// Create and Initialize a Semaphore object.
-// /// \param[in]     max_count     maximum number of available tokens.
-// /// \param[in]     initial_count initial number of available tokens.
-// /// \param[in]     attr          semaphore attributes; NULL: default values.
-// /// \return semaphore ID for reference by other functions or NULL in case of error.
-// osSemaphoreId_t osSemaphoreNew (uint32_t max_count, uint32_t initial_count, const osSemaphoreAttr_t *attr);
+/// Create and Initialize a Semaphore object.
+/// \param[in]     max_count     maximum number of available tokens.
+/// \param[in]     initial_count initial number of available tokens.
+/// \param[in]     attr          semaphore attributes; NULL: default values.
+/// \return semaphore ID for reference by other functions or NULL in case of error.
+osSemaphoreId_t osSemaphoreNew (uint32_t max_count, uint32_t initial_count, const osSemaphoreAttr_t *attr);
 
-// /// Get name of a Semaphore object.
-// /// \param[in]     semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
-// /// \return name as NULL terminated string.
-// const char *osSemaphoreGetName (osSemaphoreId_t semaphore_id);
 
-// /// Acquire a Semaphore token or timeout if no tokens are available.
-// /// \param[in]     semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
-// /// \param[in]     timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
-// /// \return status code that indicates the execution status of the function.
-// osStatus_t osSemaphoreAcquire (osSemaphoreId_t semaphore_id, uint32_t timeout);
+/// Acquire a Semaphore token or timeout if no tokens are available.
+/// \param[in]     semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+/// \param[in]     timeout       \ref CMSIS_RTOS_TimeOutValue or 0 in case of no time-out.
+/// \return status code that indicates the execution status of the function.
+osStatus_t osSemaphoreAcquire (osSemaphoreId_t semaphore_id, uint32_t timeout);
 
-// /// Release a Semaphore token up to the initial maximum count.
-// /// \param[in]     semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
-// /// \return status code that indicates the execution status of the function.
-// osStatus_t osSemaphoreRelease (osSemaphoreId_t semaphore_id);
+/// Release a Semaphore token up to the initial maximum count.
+/// \param[in]     semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+/// \return status code that indicates the execution status of the function.
+osStatus_t osSemaphoreRelease (osSemaphoreId_t semaphore_id);
 
-// /// Get current Semaphore token count.
-// /// \param[in]     semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
-// /// \return number of tokens available.
-// uint32_t osSemaphoreGetCount (osSemaphoreId_t semaphore_id);
 
-// /// Delete a Semaphore object.
-// /// \param[in]     semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
-// /// \return status code that indicates the execution status of the function.
-// osStatus_t osSemaphoreDelete (osSemaphoreId_t semaphore_id);
+/// Delete a Semaphore object.
+/// \param[in]     semaphore_id  semaphore ID obtained by \ref osSemaphoreNew.
+/// \return status code that indicates the execution status of the function.
+osStatus_t osSemaphoreDelete (osSemaphoreId_t semaphore_id);
 
 
 //  ==== Message Queue Management Functions ====
