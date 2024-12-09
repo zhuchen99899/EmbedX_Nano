@@ -77,9 +77,12 @@ extern "C" {
 
 // exlog对接:如果不独立对接ex_log_level，则会调用ex_log_printf实现
 #if !defined(ex_log_level) && defined(ex_log_printf)
-#define ex_log_level(level, tag, format, ...) ex_log_printf("%c-[<%s>(%s):%d]: "format"\n", #level[7], tag,__FUNCTION__, __LINE__,##__VA_ARGS__)
+    #if EX_TICK_ENABLE
+    #define ex_log_level(level, tag, format, ...) ex_log_printf("%c-[<%s>(%s):%d](%d): "format"\n", #level[7], tag,__FUNCTION__, __LINE__,ex_systick_get(),##__VA_ARGS__)
+    #else 
+    #define ex_log_level(level, tag, format, ...) ex_log_printf("%c-[<%s>(%s):%d]: "format"\n", #level[7], tag,__FUNCTION__, __LINE__,##__VA_ARGS__)
+    #endif
 #endif
-
 
 #ifdef __cplusplus
 } /* extern "C" */
