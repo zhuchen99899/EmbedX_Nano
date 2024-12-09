@@ -30,7 +30,7 @@ extern "C" {
 #define EX_STDLIB_ENABLE                    (1)
 #define EX_STRING_ENABLE                    (1)
 
-#define EX_TICK_ENABLE                      (0)
+#define EX_TICK_ENABLE                      (1)
 
 //是否使能错误码值到字符串的查找表
 #define EX_COMMON_ERR_TO_NAME_LOOKUP_DISABLE    (1)

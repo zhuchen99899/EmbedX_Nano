@@ -19,7 +19,7 @@
 /* ==================== [Static Prototypes] ========================================== */
 
 /* ==================== [Static Variables] ========================================== */
-static uint32_t ex_systick;
+static volatile uint32_t ex_systick;
 
 /* ==================== [Static Functions] ================================== */
 void ex_systick_inc(uint32_t tick) {
