@@ -1,14 +1,13 @@
 /**
- * @file ex_nano_thread_base.c
+ * @file ex_nano_thread_manager.c
  * @author ZC (387646983@qq.com)
- * @brief 
+ * @brief 任务管理器
  * @version 0.1
  * @date 2024-12-16
  * 
  * @copyright Copyright (c) 2024
  * 
  */
-
 /* ==================== [Includes] ========================================== */
 
 /* ==================== [Defines] ========================================== */
