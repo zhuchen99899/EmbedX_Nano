@@ -44,6 +44,7 @@ typedef enum {
     EX_ERR_INVALID_ARG                  = -8, /*!< 无效参数 */
     EX_ERR_INVALID_STATE                =-9,/*!< 无效状态 */
     EX_ERR_INVALID_CHECK                =-10,/*!< 无效校验（校验发生错误） */
+    EX_ERR_NOT_SUPPORT                  =-11,/*!< 不支持 */
 
 } ex_err_code_t;
 

@@ -42,9 +42,11 @@ extern "C" {
 #define int8_t signed   char           /*!<  8bit 整形 */
 #define int16_t signed   short         /*!< 16bit 整形 */
 #define int32_t signed   int           /*!< 32bit 整形 */
+#define int64_t signed  long long     /*!< 64bit 整形 */
 #define uint8_t unsigned char          /*!<  8bit 无符号整形 */
 #define uint16_t unsigned short        /*!< 16bit 无符号整形 */
 #define uint32_t unsigned int          /*!< 32bit 无符号整形 */
+#define uint64_t unsigned long long    /*!< 64bit 无符号整形 */
 #define intptr_t long     int          /*!< 指针大小类型 */
 
 #ifndef UINT8_MAX

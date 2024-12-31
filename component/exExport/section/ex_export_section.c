@@ -13,7 +13,7 @@
 /* ==================== [Defines] ========================================== */
 #if EX_EXPROT_METHOD == EX_EXPORT_BY_SORT_SECTION
 
-EX_TAG("ex_export_section_sort");
+EX_TAG("ex_export_sec");
 /* ==================== [Macros] ============================================ */
 
 /* ==================== [Typedefs] ========================================== */
@@ -88,8 +88,8 @@ static void section_init_func_execute(int8_t level)
     {
         if (export_init_table[i].level == level)
         {
-                EX_LOGD("Export init %s.\r\n", export_init_table[i].name);
-                
+                EX_LOGD("Export init  %s.\r\n", export_init_table[i].name);
+
                 ((void (*)(void))export_init_table[i].func)();
         }
     }

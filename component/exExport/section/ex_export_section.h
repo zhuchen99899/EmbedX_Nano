@@ -44,10 +44,10 @@ extern "C" {
 #define INIT_EXPORT(_func, _level)                                             \
     EX_USED const ex_export_t init_##_func EX_SECTION("ex_export") =    \
     {                                                                          \
-        .magic_head = EXPORT_INIT_MAGIC_ID,                                    \
         .name = XSTR(_func),                                                   \
         .func = (void *)&_func,                                                \
         .level = _level,                                                       \
+        .magic_head = EXPORT_INIT_MAGIC_ID,                                    \
         .magic_tail = EXPORT_INIT_MAGIC_ID,                                    \
     }
 

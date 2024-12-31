@@ -6,7 +6,7 @@
 
 VOID CALLBACK TimerCallback(PVOID lpParameter, BOOLEAN TimerOrWaitFired) {
     // printf("Timer callback fired! tick = %d \n",taskManager_sys_tick());
-    ex_systick_inc(1000);//1s刷新一次
+    ex_systick_inc();//1ms刷新一次
 }
 #endif
 
@@ -32,8 +32,8 @@ void main()
 
 
     HANDLE timer;
-    DWORD dueTime= 1000;  // 定时器触发的初始延迟时间（在1000毫秒后）
-    DWORD period= 1000; // 定时器触发的周期（每1000毫秒）
+    DWORD dueTime= 1;  // 定时器触发的初始延迟时间（在1毫秒后）
+    DWORD period= 1; // 定时器触发的周期（每1毫秒）
         uint32_t flag;
        // 创建一个定时器
     if (!CreateTimerQueueTimer(&timer, NULL, TimerCallback, NULL, dueTime, period,flag)) {

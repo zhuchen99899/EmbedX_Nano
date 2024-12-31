@@ -25,7 +25,7 @@ extern "C" {
 /* ==================== [Defines] ========================================== */
 //默认导出方法
 #if !defined(EX_EXPROT_METHOD)
-#   define EX_EXPROT_METHOD          EX_EXPORT_BY_CONSTRUCTOR
+#   define EX_EXPROT_METHOD          EX_EXPORT_BY_SECTION
 #endif
 
 /* ==================== [Macros] ============================================ */
@@ -45,15 +45,14 @@ enum ex_export_level{
 
 typedef struct ex_export
 {
-    #if EX_EXPROT_METHOD==EX_EXPORT_BY_SECTION
-    uint32_t magic_head;
-    #endif
+
 
     const char *name;
     void *func;
     int8_t level;
     
     #if EX_EXPROT_METHOD==EX_EXPORT_BY_SECTION
+    uint32_t magic_head;
     uint32_t magic_tail;
     #endif
 

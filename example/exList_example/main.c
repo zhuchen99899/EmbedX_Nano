@@ -16,7 +16,7 @@ static ex_list_t list_head=EX_LIST_HEAD_INIT(list_head);
 
 
 export_func_t *create_export_func(const char *name, void *func, int8_t level) {
-    export_func_t *new_func = (export_func_t *)malloc(sizeof(export_func_t));
+    export_func_t *new_func = (export_func_t *)ex_malloc(sizeof(export_func_t));
     new_func->name = name;
     new_func->func = func;
     new_func->level = level;
@@ -24,7 +24,7 @@ export_func_t *create_export_func(const char *name, void *func, int8_t level) {
 }
 
 void insert_node(export_func_t *data) {
-    ex_node_t *new_node = (ex_node_t *)malloc(sizeof(ex_node_t));
+    ex_node_t *new_node = (ex_node_t *)ex_malloc(sizeof(ex_node_t));
     new_node->data = data;
     ex_list_init(&new_node->list); // 初始化新节点的链表部分
     ex_list_add(&new_node->list, &list_head); // 将新节点加入链表

@@ -33,7 +33,13 @@ extern "C" {
 #   define EX_COMMON_ERR_TO_NAME_LOOKUP_IS_ENABLE (1)
 #endif
 
-
+/**
+ * @brief 1ms 增加一次心跳计数
+ * 
+ */
+#if !defined TICK_INCREASE_PER_MSEC 
+#define TICK_INCREASE_PER_MSEC  1000 
+#endif
 /* ==================== [Macros] ============================================ */
 
 /* ==================== [Typedefs] ========================================== */

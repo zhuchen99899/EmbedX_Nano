@@ -1,33 +1,38 @@
 /**
- * @file ex_nano_thread_manager.h
+ * @file ex_thread_cfg.h
  * @author ZC (387646983@qq.com)
- * @brief 任务管理器
+ * @brief 
  * @version 0.1
- * @date 2024-12-16
- * 
+ * @date 2024-12-24
+ * @note nano裸机版本任务调度器 配设文件
  * @copyright Copyright (c) 2024
  * 
+ * 
  */
-#ifndef _EX_NANO_THREAD_MANAGER_H_
-#define _EX_NANO_THREAD_MANAGER_H_
 
-#include "../../../exLib/ex_lib.h"
+#ifndef _EX_THREAD_CFG_H_
+#define _EX_THREAD_CFG_H_
+
+/**
+ * @brief 配置任务最高优先级
+ */
+#ifndef EX_TASK_PRIORITY_LEVELS
+#   define EX_TASK_PRIORITY_LEVELS  255
+#endif
+
+typedef enum _ex_task_type_s{
+   _EX_TASK_TYPE_TIMER = 0,
+   _EX_TASK_TYPE_MAX 
+}ex_task_type_t; //任务类型
+
 
 /* ==================== [Includes] ========================================== */
-#
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-/**
- * @brief 任务句柄。
- */
-typedef void *ex_task_t;
 
-/**
- * @brief 任务管理器句柄。
- */
-typedef void *ex_task_manager_t;
 
 /* ==================== [Defines] ========================================== */
 
@@ -42,4 +47,4 @@ typedef void *ex_task_manager_t;
 #endif
 
 
-#endif // _EX_NANO_THREAD_MANAGER_H_
+#endif // _EX_THREAD_CFG_H_
