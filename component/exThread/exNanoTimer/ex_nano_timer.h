@@ -4,8 +4,11 @@
 /* ==================== [Includes] ========================================== */
 
 #include "../../../exLib/ex_lib.h"
+<<<<<<< HEAD
 #include "../exNanoTask/ex_nano_task.h"
 #include "../../exExport/ex_export.h"
+=======
+>>>>>>> 0fca154d92f7a51196736ed04f9fcbf854183da0
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -16,7 +19,12 @@ extern "C" {
 /* ==================== [Macros] ============================================ */
 
 /* ==================== [Typedefs] ========================================== */
+//任务管理器句柄
+typedef void *ex_timer_manager_t; 
+//定时器回调
+typedef void (*ex_timer_callback)(void *arg);
 
+<<<<<<< HEAD
 
 typedef struct _ex_timer_config_s{
     bool is_periodic; //是否周期性
@@ -25,6 +33,14 @@ typedef struct _ex_timer_config_s{
 
 
 
+=======
+typedef _ex_nano_timer_s{
+    ex_list_t list;
+    ex_timer_manager_t timer_manager;
+    ex_timer_callback callback;
+    uint32_t period;
+}
+>>>>>>> 0fca154d92f7a51196736ed04f9fcbf854183da0
 /* ==================== [Public Prototypes] ========================================== */
 
 #ifdef __cplusplus

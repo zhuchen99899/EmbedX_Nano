@@ -1,10 +1,17 @@
 /**
  * @file ex_nano_timer.c
  * @author ZC (387646983@qq.com)
+<<<<<<< HEAD
  * @brief exNanoTimer
  * @version 0.1
  * @date 2024-12-23
  * 
+=======
+ * @brief 
+ * @version 0.1
+ * @date 2024-12-19
+ * @note extimer
+>>>>>>> 0fca154d92f7a51196736ed04f9fcbf854183da0
  * @copyright Copyright (c) 2024
  * 
  */
